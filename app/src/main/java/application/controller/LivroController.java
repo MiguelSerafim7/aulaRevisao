@@ -15,7 +15,7 @@ import application.repository.GeneroRepository;
 import application.repository.LivroRepository;
 
 @Controller
-@RequestMapping("/livros")
+@RequestMapping(value = {"/", "/livros"})
 public class LivroController {
     
     @Autowired
@@ -24,7 +24,7 @@ public class LivroController {
     @Autowired
     private GeneroRepository generoRepo;
 
-    @RequestMapping("/insert")
+    @RequestMapping(value = {"","/livros"})
     public String insert(Model ui) {
         ui.addAttribute("generos", generoRepo.findAll());
         return "/livro/insert";
